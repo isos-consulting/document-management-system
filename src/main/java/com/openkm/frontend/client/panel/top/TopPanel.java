@@ -172,16 +172,11 @@ public class TopPanel extends Composite {
 		horizontalPanelMenu.add(hPanel);
 
 		horizontalPanelMenu.add(quickSearchPanel);
-		Image logo = new Image("../logo/tiny");
-		horizontalPanelMenu.add(logo);
 		horizontalPanelMenu.setCellHorizontalAlignment(hPanel, HasAlignment.ALIGN_RIGHT);
 		horizontalPanelMenu.setCellVerticalAlignment(hPanel, HasAlignment.ALIGN_MIDDLE);
 		horizontalPanelMenu.setCellHorizontalAlignment(quickSearchPanel, HasAlignment.ALIGN_RIGHT);
 		horizontalPanelMenu.setCellVerticalAlignment(quickSearchPanel, HasAlignment.ALIGN_MIDDLE);
-		horizontalPanelMenu.setCellHorizontalAlignment(logo, HasAlignment.ALIGN_RIGHT);
-		horizontalPanelMenu.setCellVerticalAlignment(logo, HasAlignment.ALIGN_MIDDLE);
 		horizontalPanelMenu.setCellWidth(quickSearchPanel, "220px");
-		horizontalPanelMenu.setCellWidth(logo, "40px");
 		panel.setStyleName("okm-TopPanel");
 		panel.addStyleName("okm-DisableSelect");
 		panel.setHorizontalAlignment(VerticalPanel.ALIGN_LEFT);
