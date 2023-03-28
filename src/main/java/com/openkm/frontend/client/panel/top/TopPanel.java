@@ -63,7 +63,6 @@ public class TopPanel extends Composite {
 	private Image dragAndDropArrowUp;
 	private HTML percentage;
 	private HTML dragAndDropPercentage;
-	public HTML openkmVersion;
 	private int number = 0;
 
 	/**
@@ -153,16 +152,12 @@ public class TopPanel extends Composite {
 			}
 		});
 		searchImage.setStyleName("okm-Hyperlink");
-		openkmVersion = new HTML(""); // OpenKM Professional is not shown
-		openkmVersion.setStyleName("okm-NoWrap");
-		quickSearchPanel.add(openkmVersion);
 		quickSearchPanel.add(Util.hSpace("5px"));
 		quickSearchPanel.add(quickSearch);
 		quickSearchPanel.add(Util.hSpace("5px"));
 		quickSearchPanel.add(searchImage);
 		quickSearchPanel.add(Util.hSpace("25px"));
 		quickSearchPanel.setCellVerticalAlignment(searchImage, HasAlignment.ALIGN_MIDDLE);
-		quickSearchPanel.setCellVerticalAlignment(openkmVersion, HasAlignment.ALIGN_MIDDLE);
 
 		horizontalPanelMenu.add(mainMenu);
 		horizontalPanelMenu.setWidth("100%");
