@@ -13,6 +13,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
 </head>
 <body>
   <c:url value="/frontend/Download" var="urlDownload">
@@ -27,7 +28,7 @@
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
     <c:choose>
       <c:when test="${action == 'directOpen'}">
-        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
           <a href="home.jsp" data-iconpos="notext" data-icon="home" class="ui-btn-left"></a>
       	  <h1><u:getName path="${doc.path}"/></h1>
     	</div>
@@ -41,13 +42,13 @@
           <c:param name="offset" value="${offset}"/>
           <c:param name="limit" value="${limit}"/>
         </c:url>
-        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
           <a href="${urlSearch}" data-iconpos="notext" data-icon="back" class="ui-btn-left"></a>
       	  <h1><u:getName path="${doc.path}"/></h1>
     	</div>
       </c:when>
       <c:otherwise>
-        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+        <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
           <a href="#" data-iconpos="notext" data-icon="back" data-rel="back" class="ui-btn-left"></a>
       	  <h1><u:getName path="${doc.path}"/></h1>
     	</div>

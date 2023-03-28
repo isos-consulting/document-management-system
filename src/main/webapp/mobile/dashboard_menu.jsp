@@ -13,6 +13,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
 </head>
 <body>
   <c:url value="Dashboard" var="urlLastModified">
@@ -51,10 +52,10 @@
   <u:constantsMap className="com.openkm.dao.bean.Translation" var="Translation"/>
   <u:constantsMap className="com.openkm.core.Config" var="Config"/>
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
-  	<div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+  	<div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
       <a href="home.jsp" data-iconpos="notext" data-icon="home" class="ui-btn-left"></a>
-	  <h1><u:message key="menu.dashboard" module="${Translation.MODULE_MOBILE}"/></h1> 
-    </div> 
+	  <h1><u:message key="menu.dashboard" module="${Translation.MODULE_MOBILE}"/></h1>
+    </div>
     <div data-role="content" data-theme="${Config.MOBILE_THEME}">
       <div align="center"><h2><u:message key="dashboard.user" module="${Translation.MODULE_MOBILE}"/></h2></div>
       <div data-role="controlgroup">

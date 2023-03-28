@@ -15,6 +15,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
 </head>
 <body>
   <u:constantsMap className="com.openkm.dao.bean.Translation" var="Translation"/>
@@ -32,9 +33,9 @@
     <c:param name="action" value="logout"/>
   </c:url>
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
-    <div data-role="header" data-theme="${Config.MOBILE_THEME}"> 
-	  <h1>OpenKM</h1> 
-    </div> 
+    <div data-role="header" data-theme="${Config.MOBILE_THEME}">
+	  <h1>OpenKM</h1>
+    </div>
     <div data-role="content" data-theme="${Config.MOBILE_THEME}">
       <div data-role="controlgroup">
 	    <a href="${urlDesktop}" data-role="button" data-theme="${Config.MOBILE_THEME}"><u:message key="menu.desktop" module="${Translation.MODULE_MOBILE}"/></a>
@@ -42,7 +43,7 @@
 	    <a href="${urlDashboard}" data-role="button" data-theme="${Config.MOBILE_THEME}"><u:message key="menu.dashboard" module="${Translation.MODULE_MOBILE}"/></a>
       </div>
       <form method="post" data-ajax="false" action="${urlLogout}">
-        <fieldset>          
+        <fieldset>
           <button class="ui-btn-hidden" value="submit" name="submit" data-theme="${Config.MOBILE_THEME}" type="submit"><u:message key="menu.logout" module="${Translation.MODULE_MOBILE}"/></button>
         </fieldset>
       </form>

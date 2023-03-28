@@ -13,6 +13,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
   <script type="text/javascript">
     $(function() {
       $('li').bind('taphold', function(e) {
@@ -20,14 +21,14 @@
         var id = $(this).attr('id');
         var action = $(this).attr('data-action');
         //alert('You ' + e.type + " - '" + id + "'" + " => " + action);
-        $.mobile.changePage("Desktop?action="+action+"&uuid="+id, null, true, true);        
+        $.mobile.changePage("Desktop?action="+action+"&uuid="+id, null, true, true);
         e.stopImmediatePropagation();
         return false;
       });
 
       // Disable text selection
-      body.style.webkitUserSelect = "none";
-      body.style.MozUserSelect = "none";
+      document.body.style.webkitUserSelect = "none";
+      document.body.style.MozUserSelect = "none";
     });
   </script>
 </head>
@@ -76,7 +77,7 @@
             <a href="${urlMenu}"></a>
           </li>
         </c:forEach>
-        
+
         <!-- List folders -->
         <c:forEach var="fld" items="${fldChildren}">
           <li id="${fld.uuid}" data-action="fldMenu">
@@ -114,7 +115,7 @@
             <a href="${urlMenu}"></a>
           </li>
         </c:forEach>
-        
+
         <!-- List documents -->
         <c:forEach var="doc" items="${docChildren}">
           <li id="${doc.uuid}" data-action="docMenu">

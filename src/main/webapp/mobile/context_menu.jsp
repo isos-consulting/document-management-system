@@ -13,6 +13,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
 </head>
 <body>
   <u:constantsMap className="com.openkm.dao.bean.Translation" var="Translation"/>
@@ -35,8 +36,8 @@
   	<c:param name="path" value="/${Repository.PERSONAL}/${pageContext.request.remoteUser}"/>
   </c:url>
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
-    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
-	  <h1><u:message key="menu.change.context" module="${Translation.MODULE_MOBILE}"/></h1> 
+    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
+	  <h1><u:message key="menu.change.context" module="${Translation.MODULE_MOBILE}"/></h1>
     </div>
     <div data-role="content" data-theme="${Config.MOBILE_THEME}">
       <div data-role="controlgroup">
@@ -44,9 +45,18 @@
         <a href="${changeCategories}" data-role="button" data-theme="${Config.MOBILE_THEME}"><u:message key="context.title.categories" module="${Translation.MODULE_MOBILE}"/></a>
         <a href="${changeTemplates}" data-role="button" data-theme="${Config.MOBILE_THEME}"><u:message key="context.title.templates" module="${Translation.MODULE_MOBILE}"/></a>
         <a href="${changePersonal}" data-role="button" data-theme="${Config.MOBILE_THEME}"><u:message key="context.title.personal" module="${Translation.MODULE_MOBILE}"/></a>
+        <form id="file-form" name="fileForm" enctype="multipart-form'data">
+        	<input type="hidden" name="roles" value="" />
+        	<input type="hidden" name="message" value="" />
+        	<input type="hidden" name="increaseVersion" value="0" />
+        	<input type="file" name="uploadFormElement" onChange="uploadFile(this)"/>
+        	<input type="text" name="filename" value="" />
+        	<input type="file" name="uploadFormElement" onChange="setFileName(this)" />
+        	<button type="button" onClick="uploadFile(this)">Upload</button>
+        </form>
         <!-- <a href="#" data-role="button" data-rel="back" data-theme="${Config.MOBILE_THEME}"><u:message key="menu.back" module="${Translation.MODULE_MOBILE}"/></a> -->
       </div>
-    </div> 
+    </div>
   </div>
 </body>
 </html>

@@ -13,6 +13,7 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
   <script type="text/javascript">
     $(function() {
       $('li').bind('taphold', function(e) {
@@ -20,7 +21,7 @@
         var id = $(this).attr('id');
         var action = $(this).attr('data-action');
         //alert('You ' + e.type + " - '" + id + "'" + " => " + action);
-        $.mobile.changePage("Desktop?action="+action+"&uuid="+id, null, true, true);        
+        $.mobile.changePage("Desktop?action="+action+"&uuid="+id, null, true, true);
         e.stopImmediatePropagation();
         return false;
       });
@@ -36,7 +37,7 @@
   <u:constantsMap className="com.openkm.bean.Document" var="Document"/>
   <u:constantsMap className="com.openkm.core.Config" var="Config"/>
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
-    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
       <!-- <a href="home.jsp" data-iconpos="notext" data-icon="home" class="ui-btn-left"></a> -->
       <a href="#" data-iconpos="notext" data-icon="back" data-rel="back" class="ui-btn-left"></a>
       <c:choose>

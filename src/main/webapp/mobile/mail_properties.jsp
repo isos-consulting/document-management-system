@@ -13,12 +13,13 @@
   <!-- jQuery mobile requires jquery min 1.8.3 for running, it does not work with upper version -->
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="../js/modile-upload.js"></script>
 </head>
 <body>
   <u:constantsMap className="com.openkm.dao.bean.Translation" var="Translation"/>
   <u:constantsMap className="com.openkm.core.Config" var="Config"/>
   <div data-role="page" data-theme="${Config.MOBILE_THEME}">
-    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}"> 
+    <div data-role="header" data-position="inline" data-theme="${Config.MOBILE_THEME}">
       <a href="#" data-iconpos="notext" data-icon="back" data-rel="back" class="ui-btn-left"></a>
       <h1><u:getName path="${mail.path}"/></h1>
     </div>
