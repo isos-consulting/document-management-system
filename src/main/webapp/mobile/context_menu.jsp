@@ -49,7 +49,6 @@
         	<input type="hidden" name="roles" value="" />
         	<input type="hidden" name="message" value="" />
         	<input type="hidden" name="increaseVersion" value="0" />
-        	<input type="file" name="uploadFormElement" onChange="uploadFile(this)"/>
         	<input type="text" name="filename" value="" />
         	<input type="file" name="uploadFormElement" onChange="setFileName(this)" />
         	<button type="button" onClick="uploadFile(this)">Upload</button>
