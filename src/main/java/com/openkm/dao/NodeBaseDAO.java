@@ -2120,4 +2120,34 @@ public class NodeBaseDAO {
 			Hibernate.initialize(nBase.getRolePermissions());
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<NodeBase> findByPropertyGroup(String grpName, String grpValue) throws DatabaseException {
+		log.debug("findByPropertyGroup({}, {})", grpName, grpValue);
+		String qs = "from NodeProperty np where np.name=:name and np.value =:value";
+		Session session = null;
+		Transaction tx = null;
+		List<NodeBase> result = new ArrayList<>();
+		
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			tx = session.beginTransaction();
+
+			// First level nodes
+			Query q = session.createQuery(qs).setCacheable(true);
+			q.setString("name", grpName);
+			q.setString("value", grpValue);
+
+			for (NodeProperty np : (List<NodeProperty>) q.list()) {
+				result.add(np.getNode());
+			}
+		} catch (HibernateException e) {
+			HibernateUtil.rollback(tx);
+			throw new DatabaseException(e.getMessage(), e);
+		} finally {
+			HibernateUtil.close(session);
+		}
+		
+		return result;
+	}
 }
