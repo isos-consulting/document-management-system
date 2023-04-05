@@ -163,6 +163,7 @@ public class DocumentServlet extends OKMRemoteServiceServlet implements OKMDocum
 
 	@Override
 	public void delete(String docPath) throws OKMException {
+		log.info("delete({})", docPath);
 		log.debug("delete({})", docPath);
 		updateSessionManager();
 
