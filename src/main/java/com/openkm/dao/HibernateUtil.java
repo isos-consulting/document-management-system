@@ -21,6 +21,7 @@
 
 package com.openkm.dao;
 
+import com.isos.dao.bean.NodeDocumentExpireProperty;
 import com.openkm.core.Config;
 import com.openkm.core.DatabaseException;
 import com.openkm.dao.bean.*;
@@ -127,6 +128,8 @@ public class HibernateUtil {
 		//..
 		cfg.addAnnotatedClass(MailImportError.class);
 		cfg.addAnnotatedClass(Plugin.class);
+
+		cfg.addAnnotatedClass(NodeDocumentExpireProperty.class);
 
 		return cfg;
 	}

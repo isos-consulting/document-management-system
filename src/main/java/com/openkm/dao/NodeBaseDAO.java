@@ -21,6 +21,7 @@
 
 package com.openkm.dao;
 
+import com.isos.dao.NodeDocumentExpirePropertyDAO;
 import com.openkm.bean.*;
 import com.openkm.core.Config;
 import com.openkm.core.*;
@@ -1932,6 +1933,12 @@ public class NodeBaseDAO {
 
 						// TODO: Workaround for Hibernate Search
 						tmp.add(nodProp);
+
+						if(prop.getKey().equals(com.isos.core.Config.fileExpirationProperty)) {
+							log.debug("UPDATE - NodeDocumentExpirePropertyDAO");
+							NodeDocumentExpirePropertyDAO nodeDocumentExpirePropertyDAO = NodeDocumentExpirePropertyDAO.getInstance();
+							nodeDocumentExpirePropertyDAO.create(session, node, nodProp);
+						}
 					} else if (nodProp.getValue() != null && !nodProp.getValue().isEmpty()) {
 						if (!tmp.contains(nodProp)) {
 							log.debug("KEEP - Group: {}, Property: {}, Value: {}", nodProp.getGroup(), nodProp.getName(), nodProp.getValue());
@@ -1944,6 +1951,7 @@ public class NodeBaseDAO {
 
 				if (!alreadyAssigned) {
 					log.debug("ADD - Group: {}, Property: {}, Value: {}", grpName, prop.getKey(), prop.getValue());
+					log.info("ADD Property: {}={}", prop.getKey(), prop.getValue());
 					NodeProperty nodProp = new NodeProperty();
 					nodProp.setNode(node);
 					nodProp.setGroup(grpName);
@@ -2119,35 +2127,5 @@ public class NodeBaseDAO {
 			Hibernate.initialize(nBase.getUserPermissions());
 			Hibernate.initialize(nBase.getRolePermissions());
 		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<NodeBase> findByPropertyGroup(String grpName, String grpValue) throws DatabaseException {
-		log.debug("findByPropertyGroup({}, {})", grpName, grpValue);
-		String qs = "from NodeProperty np where np.name=:name and np.value =:value";
-		Session session = null;
-		Transaction tx = null;
-		List<NodeBase> result = new ArrayList<>();
-		
-		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			tx = session.beginTransaction();
-
-			// First level nodes
-			Query q = session.createQuery(qs).setCacheable(true);
-			q.setString("name", grpName);
-			q.setString("value", grpValue);
-
-			for (NodeProperty np : (List<NodeProperty>) q.list()) {
-				result.add(np.getNode());
-			}
-		} catch (HibernateException e) {
-			HibernateUtil.rollback(tx);
-			throw new DatabaseException(e.getMessage(), e);
-		} finally {
-			HibernateUtil.close(session);
-		}
-		
-		return result;
 	}
 }
