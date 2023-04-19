@@ -20,7 +20,11 @@
  */
 
 package com.isos.core;
-
+/**
+ * Config
+ *
+ * @author IDKNWHORU
+ */
 public final class Config {
 	public static String fileManagementPropertyGroup = "okg:management";
 	public static String fileExpirationProperty = "okg:management.date";

@@ -25,7 +25,11 @@ import com.openkm.dao.bean.NodeBase;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+/**
+ * NodeDocumentExpireProperty
+ *
+ * @author IDKNWHORU
+ */
 @Entity
 @Table(name = "ISO_NODE_DOCUMENT_EXPIRE_PROPERTY", uniqueConstraints = {
 	@UniqueConstraint(name = "IDX_NOD_EXPR_PROP_NODEXPNAM", columnNames = {"NDE_NODE"})})

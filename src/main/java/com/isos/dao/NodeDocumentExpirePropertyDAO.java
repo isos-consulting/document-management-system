@@ -32,7 +32,11 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.List;
-
+/**
+ * NodeDocumentExpirePropertyDAO
+ *
+ * @author IDKNWHORU
+ */
 public final class NodeDocumentExpirePropertyDAO {
 	private static final Logger log = LoggerFactory.getLogger(NodeDocumentExpirePropertyDAO.class);
 	private static final NodeDocumentExpirePropertyDAO instance = new NodeDocumentExpirePropertyDAO();
