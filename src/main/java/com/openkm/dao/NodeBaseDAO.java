@@ -1738,6 +1738,11 @@ public class NodeBaseDAO {
 				}
 			}
 
+			if(com.isos.core.Config.fileManagementPropertyGroup.equals(grpName)) {
+				log.info("NodeDocumentExpirePropertyDAO.getInstance().delete({})", node.getUuid());
+				NodeDocumentExpirePropertyDAO.getInstance().delete(session, node.getUuid());
+			}
+
 			session.update(node);
 			HibernateUtil.commit(tx);
 			log.debug("removePropertyGroup: void");
@@ -1951,7 +1956,6 @@ public class NodeBaseDAO {
 
 				if (!alreadyAssigned) {
 					log.debug("ADD - Group: {}, Property: {}, Value: {}", grpName, prop.getKey(), prop.getValue());
-					log.info("ADD Property: {}={}", prop.getKey(), prop.getValue());
 					NodeProperty nodProp = new NodeProperty();
 					nodProp.setNode(node);
 					nodProp.setGroup(grpName);

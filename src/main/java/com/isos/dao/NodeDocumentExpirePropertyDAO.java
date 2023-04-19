@@ -45,7 +45,7 @@ public final class NodeDocumentExpirePropertyDAO {
 	}
 
 	public void create(Session session, NodeBase node, NodeProperty nodeProperty) {
-
+		log.debug("create({}, {}, {})", session, node, nodeProperty);
 		try {
 			long id = findByFK(node.getUuid());
 			NodeDocumentExpireProperty nodeDocumentExpireProperty = id > 0 ? (NodeDocumentExpireProperty) session.load(NodeDocumentExpireProperty.class, id) : new NodeDocumentExpireProperty();
@@ -92,6 +92,21 @@ public final class NodeDocumentExpirePropertyDAO {
 			throw new HibernateException("Cannot find node document expire property by fk", e);
 		} finally {
 			HibernateUtil.close(session);
+		}
+	}
+
+	public void delete(Session session, String uuid) {
+		log.debug("delete({})", uuid);
+
+		try {
+			long id = findByFK(uuid);
+			NodeDocumentExpireProperty nodeDocumentExpireProperty = id > 0 ? (NodeDocumentExpireProperty) session.load(NodeDocumentExpireProperty.class, id) : null;
+
+			if (nodeDocumentExpireProperty != null) {
+				session.delete(nodeDocumentExpireProperty);
+			}
+		} catch (Exception e) {
+			throw new HibernateException("Cannot delete node document expire property", e);
 		}
 	}
 }

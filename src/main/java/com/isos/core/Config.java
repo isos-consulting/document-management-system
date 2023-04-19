@@ -22,5 +22,6 @@
 package com.isos.core;
 
 public final class Config {
+	public static String fileManagementPropertyGroup = "okg:management";
 	public static String fileExpirationProperty = "okg:management.date";
 }
